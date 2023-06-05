@@ -1,0 +1,15 @@
+spring:
+  # 数据源相关配置
+  datasource:
+    druid:
+      url: jdbc:mysql://124.71.1.24:3306/hrademo?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+      username: root
+      password: ybxx426825A.
+      driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.hra.controldemo.pojo
+  mapper-locations: classpath:com/hra/controldemo/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 8088
