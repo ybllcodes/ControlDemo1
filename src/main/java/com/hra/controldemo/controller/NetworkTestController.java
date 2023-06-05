@@ -5,18 +5,23 @@ import com.hra.controldemo.pojo.HraControl;
 import com.hra.controldemo.pojo.OrderForm;
 import com.hra.controldemo.service.HraControlService;
 import com.hra.controldemo.service.UserService;
+import com.hra.controldemo.utils.TableMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.plaf.metal.MetalTheme;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
-//@RequestMapping("/hra")
+@RequestMapping("/hra")
+@ResponseBody
 public class NetworkTestController {
 
     @Autowired
@@ -25,19 +30,22 @@ public class NetworkTestController {
     private UserService userService;
 
     @PostMapping(value = "setrule" ,produces = {"application/json;charset=utf-8"})
-    public String setRule(@RequestBody OrderForm of){
-//        HraControl hraControl = hraControlService.getHraControl(1L);
-//        HraControl hraC1 = hraControlService.getHraControlBySid("1234");
-//        System.out.println(hraControl);
-//        System.out.println(hraC1);
-//        List<HraControl> all = hraControlService.getAll();
-//        System.out.println(all);
-//        System.out.println(1);
-        System.out.println(of.getCommand());
-        System.out.println(of.getSId());
-//        HashMap hashMap = JSONObject.parseObject(of.getCommand(), HashMap.class);
+    public void setRule(@RequestBody HraControl hc){
 
-        System.out.println(userService.getUser(1L));
-        return "index";
+        System.out.println(hc.getPMac());
+        System.out.println(hc.getSMac());
+        System.out.println(hc);
+
+        HraControl hraControl = hraControlService.getHraControlByMac("5678");
+        if(hraControl != null){
+            //更新管控信息
+            System.out.println(hraControl.getPMac() + " === " + hraControl.getSetNetFirwall());
+            System.out.println(hraControl);
+        }else {
+            //插入管控信息
+//            HraControl newHc = new HraControl("abc1","abc2");
+//            hraControlService.saveHraControl(newHc);
+
+        }
     }
 }

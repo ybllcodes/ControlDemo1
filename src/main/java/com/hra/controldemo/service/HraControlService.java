@@ -13,9 +13,11 @@ public interface HraControlService {
 
     HraControl getHraControl(Long id);
 
-    HraControl getHraControlBySid(String mac);
+    HraControl getHraControlByMac(String mac);
 
     int updateHraControl(HraControl hraControl);
+
+    Integer updateHraControl(String mac, String prop, String value);
 
     int deleteHraControl(Long id);
 

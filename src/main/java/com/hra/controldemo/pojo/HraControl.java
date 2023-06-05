@@ -1,6 +1,7 @@
 package com.hra.controldemo.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -14,16 +15,34 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@TableName("hracontrol")
+@TableName("hcontrol")
 public class HraControl implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Long id;
+    private String setInstallPackageWhiteList;
+    private String setWhiteUrlList;
+    private Integer setNetFirwall;
 
-    private String sid;
+    private String sMac;
 
-    private String appInstallList;
-    private String networkUrlList;
-    private Integer networkControl;
-    private Integer wifiSwitch;
+    private String pMac;
+
+    public HraControl(String pMac,String sMac){
+        this.pMac = pMac;
+        this.sMac = sMac;
+        init();
+    }
+
+    public void init(){
+
+    }
 }
+
+
+
+
+
+
+
+

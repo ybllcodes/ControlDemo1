@@ -15,9 +15,10 @@ public class HraControlServiceImpl implements HraControlService {
     @Autowired
     private HraControlMapper hraControlMapper;
 
+
     @Override
     public List<HraControl> getAll() {
-        return hraControlMapper.getAll();
+        return null;
     }
 
     @Override
@@ -32,13 +33,19 @@ public class HraControlServiceImpl implements HraControlService {
     }
 
     @Override
-    public HraControl getHraControlBySid(String mac) {
-        return hraControlMapper.selectOne(new QueryWrapper<HraControl>().eq("sid",mac));
+    public HraControl getHraControlByMac(String mac) {
+        return hraControlMapper.selectOne(new QueryWrapper<HraControl>().eq("s_mac",mac));
     }
 
     @Override
     public int updateHraControl(HraControl hraControl) {
+//        hraControlMapper
         return hraControlMapper.updateById(hraControl);
+    }
+
+    @Override
+    public Integer updateHraControl(String mac, String prop, String value) {
+        return hraControlMapper.update(mac,prop,value);
     }
 
     @Override
