@@ -16,10 +16,6 @@ public class HraControlServiceImpl implements HraControlService {
     private HraControlMapper hraControlMapper;
 
 
-    @Override
-    public List<HraControl> getAll() {
-        return null;
-    }
 
     @Override
     public int saveHraControl(HraControl hc) {

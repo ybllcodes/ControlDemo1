@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public interface HraControlService {
 
-    List<HraControl> getAll();
     int saveHraControl(HraControl hc);
 
     HraControl getHraControl(Long id);

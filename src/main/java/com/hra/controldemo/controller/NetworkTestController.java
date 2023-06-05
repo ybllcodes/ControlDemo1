@@ -2,10 +2,8 @@ package com.hra.controldemo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hra.controldemo.pojo.HraControl;
-import com.hra.controldemo.pojo.OrderForm;
 import com.hra.controldemo.service.HraControlService;
 import com.hra.controldemo.service.UserService;
-import com.hra.controldemo.utils.TableMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;

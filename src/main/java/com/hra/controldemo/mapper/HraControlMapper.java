@@ -11,6 +11,6 @@ import java.util.List;
 @Mapper
 public interface HraControlMapper extends BaseMapper<HraControl> {
 
-    @Select("update hracontrol set ${prop} = ${value} where sid = ${mac};")
+    @Select("update hcontrol set ${prop} = ${value} where s_mac = ${mac};")
     Integer update(String mac, String prop, String value);
 }
