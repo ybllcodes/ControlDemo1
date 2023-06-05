@@ -1,4 +1,8 @@
 spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   # 数据源相关配置
   datasource:
     druid:
@@ -6,6 +10,7 @@ spring:
       username: root
       password: ybxx426825A.
       driver-class-name: com.mysql.cj.jdbc.Driver
+
 mybatis:
   type-aliases-package: com.hra.controldemo.pojo
   mapper-locations: classpath:com/hra/controldemo/mapper/*.xml

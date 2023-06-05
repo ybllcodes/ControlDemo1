@@ -1,5 +1,6 @@
 package com.hra.controldemo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hra.controldemo.pojo.HraControl;
 import com.hra.controldemo.pojo.OrderForm;
 import com.hra.controldemo.service.HraControlService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -31,6 +33,9 @@ public class NetworkTestController {
 //        List<HraControl> all = hraControlService.getAll();
 //        System.out.println(all);
 //        System.out.println(1);
+        System.out.println(of.getCommand());
+        System.out.println(of.getSId());
+//        HashMap hashMap = JSONObject.parseObject(of.getCommand(), HashMap.class);
 
         System.out.println(userService.getUser(1L));
         return "index";
