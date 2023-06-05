@@ -34,15 +34,17 @@ public class NetworkTestController {
         System.out.println(hc.getSMac());
         System.out.println(hc);
 
-        HraControl hraControl = hraControlService.getHraControlByMac("5678");
+        HraControl hraControl = hraControlService.getHraControlByMac(hc.getSMac());
         if(hraControl != null){
             //更新管控信息
-            System.out.println(hraControl.getPMac() + " === " + hraControl.getSetNetFirwall());
+//            System.out.println(hraControl.getPMac() + " === " + hraControl.getSetNetFirwall());
             System.out.println(hraControl);
+            hc.setId(hraControl.getId());
+            hraControlService.updateHraControl(hc);
         }else {
             //插入管控信息
-//            HraControl newHc = new HraControl("abc1","abc2");
-//            hraControlService.saveHraControl(newHc);
+            HraControl newHc = new HraControl("abc1","abc2");
+            hraControlService.saveHraControl(newHc);
 
         }
     }

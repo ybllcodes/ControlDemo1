@@ -31,13 +31,14 @@ public class HraControl implements Serializable {
     @TableField("p_mac")
     private String pMac;
 
-//    public HraControl(String pMac,String sMac){
-//        this.pMac = pMac;
-//        this.sMac = sMac;
-//        init();
-//    }
+    public HraControl(String pMac,String sMac){
+        this.pMac = pMac;
+        this.sMac = sMac;
+        init();
+    }
 
     public void init(){
+        setNetFirwall = 0;
 
     }
 }
