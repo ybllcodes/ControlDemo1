@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface HraControlService {
 
     int saveHraControl(HraControl hc);
@@ -13,6 +12,8 @@ public interface HraControlService {
     HraControl getHraControl(Long id);
 
     HraControl getHraControlByMac(String mac);
+
+    HraControl getHraControlByPSMac(String pmac,String smac);
 
     int updateHraControl(HraControl hraControl);
 

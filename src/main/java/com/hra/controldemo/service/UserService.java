@@ -3,7 +3,6 @@ package com.hra.controldemo.service;
 import com.hra.controldemo.pojo.User;
 import org.springframework.stereotype.Service;
 
-@Service
 public interface UserService {
 
     int saveUser(User hc);

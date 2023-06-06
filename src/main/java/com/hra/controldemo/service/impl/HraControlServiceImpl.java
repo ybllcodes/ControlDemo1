@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 @Service
 public class HraControlServiceImpl implements HraControlService {
@@ -31,7 +32,15 @@ public class HraControlServiceImpl implements HraControlService {
 
     @Override
     public HraControl getHraControlByMac(String mac) {
-        return hraControlMapper.selectOne(new QueryWrapper<HraControl>().eq("s_mac",mac));
+        return hraControlMapper.selectOne(new QueryWrapper<HraControl>().eq("stu_mac",mac));
+    }
+
+    @Override
+    public HraControl getHraControlByPSMac(String pmac, String smac) {
+        QueryWrapper<HraControl> wra = new QueryWrapper<HraControl>().eq("stu_mac", smac).eq("par_mac",pmac);
+//        new QueryWrapper<HraControl>().eq("par_mac", pmac);
+
+        return hraControlMapper.selectOne(wra);
     }
 
     @Override
@@ -52,7 +61,7 @@ public class HraControlServiceImpl implements HraControlService {
 
     @Override
     public List<HraControl> getHcListBypMac(String mac) {
-        Wrapper<HraControl> wrapper = new QueryWrapper<HraControl>().eq("p_mac",mac);
+        Wrapper<HraControl> wrapper = new QueryWrapper<HraControl>().eq("par_mac",mac);
         List<HraControl> hraControls = hraControlMapper.selectList(wrapper);
         return hraControls;
     }

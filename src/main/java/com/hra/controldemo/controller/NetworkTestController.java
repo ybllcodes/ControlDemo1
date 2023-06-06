@@ -29,11 +29,11 @@ public class NetworkTestController {
     @PostMapping(value = "setrule" ,produces = {"application/json;charset=utf-8"})
     public void setRule(@RequestBody HraControl hc){
 
-        System.out.println(hc.getPMac());
-        System.out.println(hc.getSMac());
+        System.out.println(hc.getParMac());
+        System.out.println(hc.getStuMac());
         System.out.println(hc);
 
-        HraControl hraControl = hraControlService.getHraControlByMac(hc.getSMac());
+        HraControl hraControl = hraControlService.getHraControlByMac(hc.getStuMac());
         if(hraControl != null){
             //更新管控信息
 //            System.out.println(hraControl.getPMac() + " === " + hraControl.getSetNetFirwall());

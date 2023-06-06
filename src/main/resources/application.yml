@@ -9,6 +9,10 @@ spring:
       url: jdbc:mysql://124.71.1.24:3306/hrademo?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
       username: root
       password: ybxx426825A.
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
       driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

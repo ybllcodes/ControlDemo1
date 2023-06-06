@@ -18,22 +18,28 @@ import java.io.Serializable;
 @TableName("hcontrol")
 public class HraControl implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @TableId(type = IdType.AUTO)
     private Long id;
-    private String setInstallPackageWhiteList;
 
+    private Integer status;
+    private String setInstallPackageWhiteList;
     private String setWhiteUrlList;
     private Integer setNetFirwall;
-    private String sMac;
-    private String pMac;
 
-//    public HraControl(String pMac,String sMac){
-//        this.pMac = pMac;
-//        this.sMac = sMac;
-//        init();
-//    }
+    private String stuMac;
+    private String parMac;
+
+    public HraControl(String pMac,String sMac){
+        this.parMac = pMac;
+        this.stuMac = sMac;
+        init();
+    }
 
     public void init(){
+        status = 1;
+
         setNetFirwall = 0;
     }
 }

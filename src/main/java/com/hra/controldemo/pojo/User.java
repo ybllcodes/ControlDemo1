@@ -16,6 +16,7 @@ import lombok.ToString;
 public class User {
     @TableId(type = IdType.AUTO)
     Long id;
+    Integer status;
     String name;
     String mac;
     Integer type;
