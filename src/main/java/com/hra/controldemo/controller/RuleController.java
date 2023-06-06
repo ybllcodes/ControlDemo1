@@ -5,28 +5,21 @@ import com.hra.controldemo.service.HraControlService;
 import com.hra.controldemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.swing.plaf.metal.MetalTheme;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/hra")
-@ResponseBody
-public class NetworkTestController {
-
+@RequestMapping("/hra/control")
+public class RuleController {
     @Autowired
     private HraControlService hraControlService;
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "setrule" ,produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    @PostMapping("/setrule")
     public void setRule(@RequestBody HraControl hc){
 
         System.out.println(hc.getPMac());
@@ -47,4 +40,5 @@ public class NetworkTestController {
 
         }
     }
+
 }

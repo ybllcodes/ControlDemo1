@@ -20,44 +20,44 @@
     </properties>
     <dependencies>
         <!--将markdown格式转成html格式-->
-        <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
-            <artifactId>commonmark</artifactId>
-            <version>0.13.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.commonmark</groupId>-->
+<!--            <artifactId>commonmark</artifactId>-->
+<!--            <version>0.13.1</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
-            <artifactId>commonmark-ext-heading-anchor</artifactId>
-            <version>0.13.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
-            <artifactId>commonmark-ext-gfm-tables</artifactId>
-            <version>0.13.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.commonmark</groupId>-->
+<!--            <artifactId>commonmark-ext-heading-anchor</artifactId>-->
+<!--            <version>0.13.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.commonmark</groupId>-->
+<!--            <artifactId>commonmark-ext-gfm-tables</artifactId>-->
+<!--            <version>0.13.1</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>net.sourceforge.nekohtml</groupId>
-            <artifactId>nekohtml</artifactId>
-            <version>1.9.22</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.sourceforge.nekohtml</groupId>-->
+<!--            <artifactId>nekohtml</artifactId>-->
+<!--            <version>1.9.22</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.4.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.7</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>fastjson</artifactId>-->
+<!--            <version>1.2.7</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

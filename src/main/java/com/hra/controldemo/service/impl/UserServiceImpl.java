@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserBySid(String mac) {
+    public User getUserByMac(String mac) {
         return userMapper.selectOne(new QueryWrapper<User>().eq("mac",mac));
     }
 

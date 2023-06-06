@@ -10,7 +10,7 @@ public interface UserService {
 
     User getUser(Long id);
 
-    User getUserBySid(String mac);
+    User getUserByMac(String mac);
 
     int updateUser(User User);
 

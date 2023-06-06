@@ -1,5 +1,6 @@
 package com.hra.controldemo.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hra.controldemo.mapper.HraControlMapper;
 import com.hra.controldemo.pojo.HraControl;
@@ -47,5 +48,12 @@ public class HraControlServiceImpl implements HraControlService {
     @Override
     public int deleteHraControl(Long id) {
         return hraControlMapper.deleteById(id);
+    }
+
+    @Override
+    public List<HraControl> getHcListBypMac(String mac) {
+        Wrapper<HraControl> wrapper = new QueryWrapper<HraControl>().eq("p_mac",mac);
+        List<HraControl> hraControls = hraControlMapper.selectList(wrapper);
+        return hraControls;
     }
 }

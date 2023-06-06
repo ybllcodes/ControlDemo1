@@ -20,4 +20,6 @@ public interface HraControlService {
 
     int deleteHraControl(Long id);
 
+    List<HraControl> getHcListBypMac(String mac);
+
 }
