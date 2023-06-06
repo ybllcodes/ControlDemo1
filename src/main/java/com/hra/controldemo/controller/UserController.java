@@ -2,6 +2,7 @@ package com.hra.controldemo.controller;
 
 import com.hra.controldemo.pojo.HraControl;
 import com.hra.controldemo.pojo.PtoS;
+import com.hra.controldemo.pojo.ResultBean;
 import com.hra.controldemo.pojo.User;
 import com.hra.controldemo.service.HraControlService;
 import com.hra.controldemo.service.PtoSService;
@@ -120,7 +121,7 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/registermac")
-    public void registerMac(@RequestBody Map<String,String> params){
+    public ResultBean registerMac(@RequestBody Map<String,String> params){
         String mac = params.getOrDefault("mac","");
         String type = params.getOrDefault("type","1"); //0:家长端 1:学生端
         System.out.println("mac:" + mac + " ,type:" + type);
@@ -130,9 +131,11 @@ public class UserController {
             User user1 = new User(null,0,"name" + mac,mac,"1".equals(type)? 1 :0);
             userService.saveUser(user1);
             System.out.println("注册成功!");
+            return new ResultBean(true,"注册成功","123",1);
         }else {
             //已经注册
             System.out.println("当前mac已经注册,不用再次注册");
+            return new ResultBean(true,"当前mac已经注册,不需要再次注册","345",1);
         }
     }
 }
