@@ -49,9 +49,13 @@ public class HraControlServiceImpl implements HraControlService {
         return hraControlMapper.updateById(hraControl);
     }
 
+//    @Override
+//    public Integer updateHraControl(String mac, String prop, String value) {
+//        return hraControlMapper.update(mac,prop,value);
+//    }
     @Override
-    public Integer updateHraControl(String mac, String prop, String value) {
-        return hraControlMapper.update(mac,prop,value);
+    public int updateHraControl(String pMac, String sMac, String key, Object value) {
+        return hraControlMapper.update(pMac,sMac,key,value);
     }
 
     @Override
@@ -65,4 +69,6 @@ public class HraControlServiceImpl implements HraControlService {
         List<HraControl> hraControls = hraControlMapper.selectList(wrapper);
         return hraControls;
     }
+
+
 }

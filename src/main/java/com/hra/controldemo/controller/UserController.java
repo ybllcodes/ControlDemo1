@@ -36,7 +36,7 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/bindPS")
-    public void bindPAndS(@RequestBody Map<String,String> params){
+    public ResultBean bindPAndS(@RequestBody Map<String,String> params){
         String stuMac = params.getOrDefault("stuMac","");
         String parMac = params.getOrDefault("parMac","");
 
@@ -44,14 +44,14 @@ public class UserController {
         User stuUser = userService.getUserByMac(stuMac);
         if (stuUser == null || parUser == null){
             System.out.println("mac地址未注册，请先注册");
-            return;
+            return new ResultBean("mac地址未注册，请先注册");
         }
 
         PtoS OnPs = ptoSService.getPsOnStatusBysMac(stuMac);
         if (OnPs != null){
             // 当前 stuMac已经绑定，存在有status为1的管控Mac
             System.out.println("绑定失败！该SMac已经绑定过,请先解绑");
-            return;
+            return new ResultBean("绑定失败！该SMac已经绑定过,请先解绑");
         }else {
             PtoS ps = ptoSService.getPsByPSMac(parMac,stuMac);
             //当前 stuMac未进行绑定，可以绑定
@@ -61,11 +61,11 @@ public class UserController {
                 Integer stuType = stuUser.getType();
                 if(parType != 0){
                     System.out.println("pMac 没权限");
-                    return;
+                    return new ResultBean("pMac 没权限");
                 }
                 if(stuType != 1){
-                    System.out.println("sMac 传入错误");
-                    return;
+                    System.out.println("sMac 不是学生端");
+                    return new ResultBean("sMac 不是学生端");
                 }
                 PtoS newPs = new PtoS(null,1,parMac,stuMac);
                 int result = ptoSService.savePtoS(newPs);
@@ -73,6 +73,7 @@ public class UserController {
                 HraControl hraControl = new HraControl(parMac, stuMac);
                 hraControlService.saveHraControl(hraControl);
                 System.out.println("已创建pMac与sMac的绑定关系");
+                return new ResultBean("已创建pMac与sMac的绑定关系");
             }else {
                 //此前存在记录，直接修改status状态
                 ps.setStatus(1);
@@ -82,20 +83,22 @@ public class UserController {
                 hc.setStatus(1);
                 hraControlService.updateHraControl(hc);
                 System.out.println("pMac与sMac已重新绑定");
+                return new ResultBean("pMac与sMac已重新绑定");
             }
         }
     }
 
     @ResponseBody
     @PostMapping("/unbindPS")
-    public void unbindPAndS(@RequestBody Map<String,String> params){
+    public ResultBean unbindPAndS(@RequestBody Map<String,String> params){
         String stuMac = params.getOrDefault("stuMac","");
         String parMac = params.getOrDefault("parMac","");
         User parUser = userService.getUserByMac(parMac);
         User stuUser = userService.getUserByMac(stuMac);
+        String msg = "";
         if (stuUser == null || parUser == null){
             System.out.println("mac地址未注册，请先注册");
-            return;
+            return new ResultBean("mac地址未注册，请先注册");
         }
         PtoS ps = ptoSService.getSsByPSMac(parMac, stuMac);
         if(ps != null){
@@ -109,14 +112,18 @@ public class UserController {
                 hc.setStatus(0);
                 hraControlService.updateHraControl(hc);
                 System.out.println("pMac与sMac已解绑！");
+                msg = "pMac与sMac已解绑";
             }else {
                 //已经解绑过
                 System.out.println("该pMac与sMac已经解绑了！");
+                msg = "该pMac与sMac已经解绑了";
             }
         }else {
             //pmac与smac无法配对，解绑失败
             System.out.println("该pMac与sMac配对失败，解绑失败！");
+            msg = "该pMac与sMac配对失败，解绑失败！";
         }
+        return new ResultBean(msg);
     }
 
     @ResponseBody

@@ -17,10 +17,11 @@ public interface HraControlService {
 
     int updateHraControl(HraControl hraControl);
 
-    Integer updateHraControl(String mac, String prop, String value);
+//    Integer updateHraControl(String mac, String prop, String value);
 
     int deleteHraControl(Long id);
 
     List<HraControl> getHcListBypMac(String mac);
 
+    int updateHraControl(String pMac, String sMac, String key, Object value);
 }

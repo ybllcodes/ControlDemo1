@@ -18,13 +18,17 @@ import java.util.Set;
 
 @Controller
 @RequestMapping("/hra")
-@ResponseBody
 public class NetworkTestController {
 
     @Autowired
     private HraControlService hraControlService;
     @Autowired
     private UserService userService;
+
+    @GetMapping("/test")
+    public String goIndex(){
+        return "index";
+    }
 
     @PostMapping(value = "setrule" ,produces = {"application/json;charset=utf-8"})
     public void setRule(@RequestBody HraControl hc){
